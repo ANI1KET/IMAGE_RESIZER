@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #927dfc;
+}
+.wrapper {
+  width: 390px;
+  height: 310px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 9px;
+  transition: height 0.2s ease;
+}
+.wrapper.active {
+  height: 545px;
+}
+.wrapper .upload-box {
+  height: 250px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px dashed #afafaf;
+}
+.wrapper.active .upload-box {
+  border: none;
+}
+.upload-box p {
+  font-size: 1.06rem;
+  margin-top: 20px;
+}
+.wrapper.active .upload-box p {
+  display: none;
+}
+.wrapper.active .upload-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.wrapper .content {
+  opacity: 0;
+  margin-top: 28px;
+  pointer-events: none;
+}
+.wrapper.active .content {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+.content .row {
+  display: flex;
+  justify-content: space-between;
+}
+.content .row .column {
+  width: calc(100% / 2 - 15px);
+}
+.row .column label {
+  font-size: 1.06rem;
+}
+.row .ratio label {
+  white-space: nowrap;
+}
+.row .quality label {
+  white-space: nowrap;
+}
+.sizes .column input {
+  width: 100%;
+  height: 49px;
+  outline: none;
+  margin-top: 7px;
+  padding: 0 15px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+.sizes .column input:focus {
+  padding: 0 14px;
+  border: 2px solid #927dfc;
+}
+.content .checkboxes {
+  margin-top: 20px;
+}
+.checkboxes .column {
+  display: flex;
+  align-items: center;
+}
+.checkboxes .column input {
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+  accent-color: #927dfc;
+}
+.Button {
+  display: flex;
+  column-gap: 4px;
+}
+.content .download-btn,
+.preview-btn {
+  width: 100%;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.06rem;
+  border-radius: 5px;
+  padding: 15px 0;
+  margin: 30px 0 10px;
+  background: #927dfc;
+  text-transform: uppercase;
+}
+.imagesize {
+  width: 60%;
+  height: 78%;
+  animation: updown 5s infinite;
+}
+@keyframes updown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+}
+.img {
+  animation: none;
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+}
+
+#myModal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+}
+
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #4a4545;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #070707;
+  text-decoration: none;
+  cursor: pointer;
+}
